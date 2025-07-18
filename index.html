@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deconstructed: The Aditya Motors Web Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            border-bottom: none;
+            margin-top: 30px;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .visual-result-box {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Deconstructed: A Guide to the Aditya Motors Web Page</h1>
+        <p>This document breaks down the HTML and CSS used to create the "Aditya Motors" website. Each section explains a specific tag or property, shows its syntax, provides the exact code from your project, and includes a visual example of the result.</p>
+
+        <h2>Part 1: Core HTML Structure</h2>
+        <p>These tags form the main layout and structural containers of the page.</p>
+
+        <h3><code>&lt;header&gt;</code></h3>
+        <h4>Definition</h4>
+        <p>Represents introductory content, typically a group of introductory or navigational aids. It often contains <code>&lt;h1&gt;</code> tags, logos, and search forms.</p>
+        <h4>Syntax</h4>
+        <pre><code>&lt;header&gt; ... content ... &lt;/header&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;header&gt;
+  &lt;h1&gt;Aditya Motors&lt;/h1&gt;
+  &lt;p&gt;Your Destination for Hypercars and Luxury Test Drives&lt;/p&gt;
+&lt;/header&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364); color: white; padding: 20px; text-align: center; border-radius: 8px;">
+                <h1 style="margin: 0; font-size: 24px; font-family: 'Segoe UI', sans-serif; border: none;">Aditya Motors</h1>
+                <p style="font-style: italic; margin-top: 8px; font-size: 14px; font-family: 'Segoe UI', sans-serif;">Your Destination for Hypercars and Luxury Test Drives</p>
+            </div>
+        </div>
+
+        <h3><code>&lt;nav&gt;</code></h3>
+        <h4>Definition</h4>
+        <p>Represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents.</p>
+        <h4>Syntax</h4>
+        <pre><code>&lt;nav&gt; ... navigation links ... &lt;/nav&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;nav&gt;
+  &lt;ul class="nav-links"&gt;
+    &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="background-color: #1c2b36; padding: 12px 0; text-align: center; border-radius: 8px; font-family: 'Segoe UI', sans-serif;">
+                <a href="#" style="color: white; font-weight: bold; margin: 0 15px; text-decoration: none;">Home</a>
+                <a href="#" style="color: white; font-weight: bold; margin: 0 15px; text-decoration: none;">Contact</a>
+                <a href="#" style="color: white; font-weight: bold; margin: 0 15px; text-decoration: none;">Location</a>
+            </div>
+        </div>
+
+        <h3><code>&lt;div&gt;</code></h3>
+        <h4>Definition</h4>
+        <p>The generic container for flow content. It has no effect on the content or layout until styled using CSS. It's used to group elements for styling purposes or because they share attribute values.</p>
+        <h4>Syntax</h4>
+        <pre><code>&lt;div class="your-class-name"&gt; ... content ... &lt;/div&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;div class="section"&gt;
+  &lt;h2&gt;Aston Martin Valkyrie&lt;/h2&gt;
+  ...
+&lt;/div&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+             <div style="background: white; padding: 25px; margin: 20px auto; max-width: 400px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); font-family: 'Segoe UI', sans-serif;">
+                <h2 style="text-align: center; color: #1a1a1a; margin-bottom: 15px; border: none;">Aston Martin Valkyrie</h2>
+                <p>Content for the car goes here...</p>
+            </div>
+        </div>
+
+        <h2>Part 2: HTML Content & Media</h2>
+        <p>These tags represent the actual content—text, links, media, and tables.</p>
+
+        <h3><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code></h3>
+        <h4>Definition</h4>
+        <p>Heading tags, used to define a hierarchy of titles and subtitles. <code>&lt;h1&gt;</code> is the most important, <code>&lt;h2&gt;</code> is a subsection, and so on, down to <code>&lt;h6&gt;</code>.</p>
+        <h4>Syntax</h4>
+        <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;h1&gt;Aditya Motors&lt;/h1&gt;
+&lt;h2&gt;Aston Martin Valkyrie&lt;/h2&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="font-family: 'Segoe UI', sans-serif;">
+                <h1 style="font-size: 36px; border: none;">Aditya Motors</h1>
+                <h2 style="font-size: 28px; border: none;">Aston Martin Valkyrie</h2>
+            </div>
+        </div>
+
+        <h3><code>&lt;iframe&gt;</code></h3>
+        <h4>Definition</h4>
+        <p>Used to embed another HTML document within the current one. Commonly used for embedding maps, social media feeds, or videos.</p>
+        <h4>Syntax</h4>
+        <pre><code>&lt;iframe src="url" width="x" height="y" title="description"&gt;&lt;/iframe&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;iframe width="700" height="394" src="https://www.youtube.com/embed/a57WNM2Yhc8" title="Aston Martin Valkyrie"&gt;&lt;/iframe&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="border-radius: 10px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); width: 100%; max-width: 400px; aspect-ratio: 16/9; background: #000 url('https://placehold.co/400x225/000000/ffffff?text=Video+Player') no-repeat center center; background-size: cover;"></div>
+        </div>
+
+        <h3><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></h3>
+        <h4>Definition</h4>
+        <ul>
+            <li><code>&lt;table&gt;</code>: The container for tabular data.</li>
+            <li><code>&lt;tr&gt;</code>: A row in the table.</li>
+            <li><code>&lt;th&gt;</code>: A header cell in the table (bold and centered by default).</li>
+            <li><code>&lt;td&gt;</code>: A standard data cell in the table.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>&lt;table&gt; &lt;tr&gt; &lt;th&gt;Header&lt;/th&gt; &lt;td&gt;Data&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Model&lt;/th&gt;
+    &lt;td&gt;Aston Martin Valkyrie&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Engine&lt;/th&gt;
+    &lt;td&gt;6.5L V12 Hybrid&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+             <table style="width: 100%; max-width: 400px; border-collapse: collapse; font-family: 'Segoe UI', sans-serif;">
+                <tbody><tr>
+                    <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; background-color: #f1f1f1;">Model</th>
+                    <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd;">Aston Martin Valkyrie</td>
+                </tr>
+                 <tr style="background-color: #fafafa;">
+                    <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; background-color: #f1f1f1;">Engine</th>
+                    <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd;">6.5L V12 Hybrid</td>
+                </tr>
+            </tbody></table>
+        </div>
+
+        <h2>Part 3: HTML Forms</h2>
+        <p>These tags are used to collect input from the user.</p>
+
+        <h3><code>&lt;form&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></h3>
+        <h4>Definition</h4>
+        <ul>
+            <li><code>&lt;form&gt;</code>: A container for form controls.</li>
+            <li><code>&lt;label&gt;</code>: A caption for an item in a user interface.</li>
+            <li><code>&lt;input&gt;</code>: A typed data field, used to create interactive controls. Its <code>type</code> attribute is critical (e.g., <code>text</code>, <code>tel</code>, <code>radio</code>, <code>submit</code>).</li>
+            <li><code>&lt;textarea&gt;</code>: A multi-line plain-text editing control.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>&lt;form&gt; &lt;label for="id"&gt;Label&lt;/label&gt; &lt;input type="text" id="id"&gt; &lt;/form&gt;</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Full Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+
+  &lt;input type="radio" id="valkyrie" name="model" value="Valkyrie"&gt;
+  &lt;label for="valkyrie"&gt;Valkyrie&lt;/label&gt;
+&lt;/form&gt;</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; max-width: 400px;">
+                <label for="demo-name" style="font-weight: bold;">Full Name:</label>
+                <input type="text" id="demo-name" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                <div style="margin-top: 15px;">
+                    <input type="radio" id="demo-valk" name="demomodel">
+                    <label for="demo-valk">Valkyrie</label>
+                </div>
+            </div>
+        </div>
+
+        <h2>Part 4: Core CSS Properties</h2>
+        <p>These CSS properties define the fundamental look and feel of the page.</p>
+
+        <h3><code>font-family</code>, <code>color</code>, <code>background-color</code></h3>
+        <h4>Definition</h4>
+        <ul>
+            <li><code>font-family</code>: Specifies a prioritized list of one or more font family names.</li>
+            <li><code>color</code>: Sets the foreground color value of an element's text.</li>
+            <li><code>background-color</code>: Sets the background color of an element.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>selector {
+  font-family: "Font Name", sans-serif;
+  color: #333;
+  background-color: #f0f2f5;
+}</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; color: #333; padding: 20px; border-radius: 8px;">
+                This text uses the 'Segoe UI' font on a light grey background with dark grey text.
+            </div>
+        </div>
+
+        <h3><code>margin</code>, <code>padding</code></h3>
+        <h4>Definition</h4>
+        <p>The core of the Box Model.</p>
+        <ul>
+            <li><code>margin</code>: Sets the space on the <strong>outside</strong> of an element's border.</li>
+            <li><code>padding</code>: Sets the space on the <strong>inside</strong> of an element's border, between the border and the content.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>selector { margin: 10px; padding: 20px; }</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>.section {
+  padding: 25px;
+  margin: 40px auto;
+}</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+             <div style="background: #e0e0e0; padding: 10px;">
+                <div style="margin: 20px; padding: 25px; background: white; text-align: center; font-family: 'Segoe UI', sans-serif; border: 2px dashed #ccc;">
+                    The dashed border is the edge of the element. The space inside is padding, the space outside is margin.
+                </div>
+            </div>
+        </div>
+
+        <h3><code>:hover</code>, <code>transition</code></h3>
+        <h4>Definition</h4>
+        <ul>
+            <li><code>:hover</code>: A pseudo-class that applies styles when the user's mouse pointer is over an element.</li>
+            <li><code>transition</code>: Defines how a CSS property change should animate smoothly from one state to another.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>selector { transition: property duration timing-function; }
+selector:hover { property: new-value; }</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>.nav-links a {
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #f0a500;
+}</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="font-family: 'Segoe UI', sans-serif; padding: 20px; text-align: center;">
+                <a href="#" style="color: #0b4b7d; font-weight: bold; font-size: 18px; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='#0b4b7d'">
+                    Hover over this link
+                </a>
+            </div>
+        </div>
+
+        <h2>Part 5: Advanced CSS Selectors & Properties</h2>
+        <p>These selectors and properties add more specific and advanced styling to the page.</p>
+
+        <h3>Advanced Selectors</h3>
+        <h4>Definition</h4>
+        <p>Advanced selectors allow for more precise targeting of elements.</p>
+        <ul>
+            <li><strong>Attribute Selector <code>[attr="value"]</code></strong>: Selects elements based on an attribute and its value.</li>
+            <li><strong>Pseudo-class Selector <code>:nth-child()</code></strong>: Selects elements based on their position among siblings.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>selector[attribute="value"] { ... }
+selector:pseudo-class { ... }</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>input[type="text"] {
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <p>The text input below is styled because its <code>type</code> attribute is "text". In the table, every even row (2nd, 4th, etc.) has a light grey background.</p>
+            <input type="text" placeholder="This input is targeted" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            <table style="width: 100%; border-collapse: collapse; font-family: 'Segoe UI', sans-serif;">
+                <tbody>
+                    <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;">Row 1 (odd)</td></tr>
+                    <tr style="background-color: #fafafa;"><td style="padding: 8px; border-bottom: 1px solid #ddd;">Row 2 (even)</td></tr>
+                    <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;">Row 3 (odd)</td></tr>
+                    <tr style="background-color: #fafafa;"><td style="padding: 8px; border-bottom: 1px solid #ddd;">Row 4 (even)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3><code>linear-gradient()</code></h3>
+        <h4>Definition</h4>
+        <p>Creates an image consisting of a progressive transition between two or more colors along a straight line. It is used with the <code>background</code> property.</p>
+        <h4>Syntax</h4>
+        <pre><code>selector { background: linear-gradient(direction, color1, color2, ...); }</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>header {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+            <div style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364); color: white; padding: 20px; text-align: center; border-radius: 8px; font-family: 'Segoe UI', sans-serif;">
+                This element has a horizontal gradient background.
+            </div>
+        </div>
+
+        <h3><code>border-radius</code> & <code>box-shadow</code></h3>
+        <h4>Definition</h4>
+        <ul>
+            <li><code>border-radius</code>: Rounds the corners of an element's outer border edge.</li>
+            <li><code>box-shadow</code>: Adds shadow effects around an element's frame.</li>
+        </ul>
+        <h4>Syntax</h4>
+        <pre><code>selector {
+  border-radius: 12px;
+  box-shadow: offsetX offsetY blurRadius color;
+}</code></pre>
+        <h4>Code Snippet</h4>
+        <pre><code>.section {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}</code></pre>
+        <h4>Visual Result</h4>
+        <div class="visual-result-box">
+             <div style="background: white; padding: 25px; margin: 20px auto; max-width: 400px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); font-family: 'Segoe UI', sans-serif; text-align: center;">
+                This box has rounded corners and a subtle shadow.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
