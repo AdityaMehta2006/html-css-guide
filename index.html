@@ -1,296 +1,368 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAD notes</title>
+    <title>HTML & CSS Cheatsheet</title>
     <!-- Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
     <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Syntax Highlighting Colors */
-        .token-comment { color: #64748b; }
-        .token-tag { color: #f472b6; }
-        .token-attr-name { color: #a78bfa; }
-        .token-attr-value { color: #818cf8; }
-        .token-selector { color: #f43f5e; }
-        .token-property { color: #38bdf8; }
-        .token-value { color: #fbbf24; }
-        .token-punctuation { color: #94a3b8; }
-        
+        pre, code {
+            font-family: 'Fira Code', monospace;
+        }
         /* Custom scrollbar for dark mode */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        /* Styles for the active tab */
-        .tab-active {
-            border-color: #a5b4fc !important;
-            color: #a5b4fc !important;
-            background-color: #3730a3 !important;
+        /* Styles for the live preview examples */
+        .preview-box {
+            background-color: #ffffff;
+            color: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
         }
+        .preview-box table, .preview-box th, .preview-box td {
+            border: 1px solid #e2e8f0;
+            border-collapse: collapse;
+            padding: 0.5rem 1rem;
+        }
+        .preview-box th {
+            background-color: #f1f5f9;
+        }
+        .preview-box a {
+            color: #4f46e5;
+        }
+        .preview-box img {
+            border-radius: 0.5rem;
+        }
+        .preview-box form input, .preview-box form textarea, .preview-box form button {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            color: #1e293b;
+            width: 100%;
+        }
+        .preview-box form button {
+            background-color: #4f46e5;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .preview-box .radio-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .preview-box .radio-group input {
+            width: auto;
+        }
+        .preview-box .styled-nav {
+            background-color: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        .preview-box .styled-nav ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+        .preview-box .flex-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            min-height: 120px;
+        }
+        .preview-box .flex-item {
+            background-color: #4f46e5;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        .preview-box .flex-item.pointer { cursor: pointer; }
+        .preview-box .flex-item.help { cursor: help; }
+        .preview-box .flex-item.wait { cursor: wait; }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300">
 
     <!-- Main Container -->
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <!-- Header -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Web Development Notes</h1>
-            <p class="text-lg text-slate-400">WAD HTML & CSS</p>
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">HTML & CSS Snippet Cheatsheet</h1>
+            <p class="text-lg text-slate-400">Side-by-side code with live previews for common web elements.</p>
         </header>
 
-        <!-- Tab Navigation -->
-        <div class="mb-8 border-b border-slate-700 flex justify-center sticky top-0 bg-slate-900/80 backdrop-blur-sm z-10">
-            <nav class="-mb-px flex flex-wrap justify-center space-x-2 sm:space-x-6" aria-label="Tabs">
-                <button data-tab-target="notes" class="tab-btn tab-active whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm">Notes</button>
-                <button data-tab-target="tags" class="tab-btn whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-500">Tag Reference</button>
-                <button data-tab-target="code" class="tab-btn whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-500">Sample Code</button>
-                <button data-tab-target="qa" class="tab-btn whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-500">Q & A</button>
-            </nav>
-        </div>
+        <!-- Cheatsheet Sections -->
+        <div class="space-y-16">
 
-        <!-- Tab Content -->
-        <main>
-            <!-- Notes Tab -->
-            <div id="notes" class="tab-content space-y-12">
-                <!-- Section: Internet Fundamentals -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mb-6">Internet Fundamentals</h2>
-                    <div class="space-y-6">
-                        <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                            <h3 class="font-semibold text-lg text-indigo-400 mb-2">History of the Internet</h3>
-                            <p>The internet began in the 1960s as ARPANET, a US military project to create a decentralized communication network. Key milestones include the invention of TCP/IP in the 1970s, the Domain Name System (DNS) in 1983, and the creation of the World Wide Web by Tim Berners-Lee in 1990, which made the internet accessible to the public.</p>
-                        </div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                            <h3 class="font-semibold text-lg text-indigo-400 mb-3">Client-Server Model</h3>
-                            <p class="mb-4">This model is the foundation of the web. A **Client** (like your web browser) requests resources from a **Server**, which is a powerful computer that stores files and data. The server processes the request and sends a response back to the client.</p>
-                            <div class="mt-4 p-4 bg-slate-800 rounded-lg flex flex-col sm:flex-row items-center justify-around text-center">
-                                <div class="m-2"><div class="text-5xl">💻</div><div class="font-bold mt-1">Client</div></div>
-                                <div class="text-slate-500 m-2 font-mono text-sm">Request ➔<br>← Response</div>
-                                <div class="m-2"><div class="text-5xl">🗄️</div><div class="font-bold mt-1">Server</div></div>
-                            </div>
-                        </div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                            <h3 class="font-semibold text-lg text-indigo-400 mb-3">Web Servers & Web Services</h3>
-                            <ul class="space-y-3 text-sm">
-                                <li><strong>Web Server:</strong> Software (like Apache or Nginx) that runs on a server computer. Its primary job is to accept HTTP requests from clients (browsers) and send back the requested files (HTML, CSS, images).</li>
-                                <li><strong>Web Services:</strong> A way for different applications to communicate with each other over the internet, often through an API. They allow a website to use functionality from another service (e.g., using Google Maps on your site).</li>
+            <!-- Section: Navigation Links -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-4">Navigation Links</h2>
+                <div class="grid lg:grid-cols-2 gap-4">
+                    <!-- HTML Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">HTML</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>&lt;nav class="styled-nav"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                    <!-- CSS Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">CSS</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>.styled-nav {
+  background-color: #1e293b;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.styled-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+.styled-nav a {
+  color: #a5b4fc;
+  text-decoration: none;
+  font-weight: 500;
+}</code></pre>
+                    </div>
+                </div>
+                <!-- Live Preview -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-semibold mb-2 text-slate-400">Live Preview</h3>
+                    <div class="preview-box">
+                        <nav class="styled-nav !bg-slate-100">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
-                </section>
-                <!-- Section: HTML -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mt-12 mb-6">HTML Concepts</h2>
-                    <div class="space-y-6">
-                        <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                            <h3 class="font-semibold text-lg text-indigo-400 mb-2">HTML vs HTML5</h3>
-                            <p>HTML5 is the latest version of HTML. It introduced new features designed for modern web applications, including new semantic tags like <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code>, native support for <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>, and new form input types.</p>
-                        </div>
-                    </div>
-                </section>
-                <!-- Section: CSS -->
-                <section>
-                    <h2 class="text-2xl font-bold text-white mt-12 mb-6">CSS Concepts</h2>
-                     <div class="space-y-6">
-                        <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                            <h3 class="font-semibold text-lg text-indigo-400 mb-2">The Box Model</h3>
-                            <p class="mb-3">Every HTML element is a box. The CSS box model describes the space around an element: <strong>Content → Padding → Border → Margin</strong>.</p>
-                            <div class="mt-4 p-4 bg-slate-900/70 rounded-lg text-center text-xs">
-                                <div class="p-4 border-2 border-dashed border-slate-600">
-                                    <div class="p-4 bg-indigo-900/50">
-                                        <div class="p-4 bg-indigo-800/50 text-indigo-100 font-semibold">Content</div>
-                                        <span class="text-indigo-300">Padding</span>
-                                    </div>
-                                    <span class="text-slate-500">Border</span>
-                                </div>
-                                 <span class="text-slate-500">Margin</span>
-                            </div>
-                        </div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                            <h3 class="font-semibold text-lg text-indigo-400 mb-2">CSS Positioning</h3>
-                            <p class="mb-3">The <code>position</code> property specifies the type of positioning method used for an element.</p>
-                            <ul class="list-disc list-inside space-y-2 text-sm">
-                                <li><code>static</code>: Default value. Elements render in order.</li>
-                                <li><code>relative</code>: Positioned relative to its normal position.</li>
-                                <li><code>absolute</code>: Positioned relative to its nearest positioned ancestor.</li>
-                                <li><code>fixed</code>: Positioned relative to the viewport (stays in place on scroll).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                </div>
+            </section>
             
-            <!-- Tags Reference Tab -->
-            <div id="tags" class="tab-content hidden space-y-8">
-                 <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-lg text-indigo-400 mb-4">Basic & Structural Tags</h3>
-                    <div class="space-y-3 text-sm">
-                        <p><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Define hierarchical headings.</p>
-                        <p><code>&lt;p&gt;</code>: Defines a paragraph.</p>
-                        <p><code>&lt;div&gt;</code>: A generic block-level container for styling.</p>
-                        <p><code>&lt;span&gt;</code>: A generic inline container for styling text.</p>
-                        <p><code>&lt;header&gt;</code>: Defines the header for a document or section.</p>
-                        <p><code>&lt;footer&gt;</code>: Defines the footer for a document or section.</p>
-                        <p><code>&lt;nav&gt;</code>: Defines a block of navigation links.</p>
+            <!-- Section: Advanced Styling -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-4">Advanced Styling (Gradient & RGBA)</h2>
+                <div class="grid lg:grid-cols-2 gap-4">
+                    <!-- HTML Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">HTML</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>&lt;div class="gradient-box"&gt;
+  A box with a gradient background.
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <!-- CSS Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">CSS</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>.gradient-box {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  /* A gradient from a semi-transparent
+     indigo to a semi-transparent purple */
+  background: linear-gradient(
+    90deg, 
+    rgba(79, 70, 229, 0.8), 
+    rgba(139, 92, 246, 0.8)
+  );
+}</code></pre>
                     </div>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-lg text-indigo-400 mb-4">Links & Media Tags</h3>
-                    <div class="space-y-3 text-sm">
-                        <p><code>&lt;a href="..."&gt;</code>: Defines a hyperlink.</p>
-                        <p><code>&lt;img src="..." alt="..."&gt;</code>: Embeds an image.</p>
-                        <p><code>&lt;iframe src="..."&gt;</code>: Embeds another HTML document.</p>
+                <!-- Live Preview -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-semibold mb-2 text-slate-400">Live Preview</h3>
+                    <div class="preview-box">
+                       <div class="p-8 rounded-lg text-white" style="background: linear-gradient(90deg, rgba(79, 70, 229, 0.8), rgba(139, 92, 246, 0.8));">
+                           A box with a gradient background.
+                       </div>
                     </div>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-lg text-indigo-400 mb-4">Table Tags</h3>
-                    <div class="space-y-3 text-sm">
-                        <p><code>&lt;table&gt;</code>: The wrapper element for a table.</p>
-                        <p><code>&lt;thead&gt;</code>: Groups the header content in a table.</p>
-                        <p><code>&lt;tbody&gt;</code>: Groups the body content in a table.</p>
-                        <p><code>&lt;tr&gt;</code>: Defines a row in a table.</p>
-                        <p><code>&lt;th&gt;</code>: Defines a header cell in a table.</p>
-                        <p><code>&lt;td&gt;</code>: Defines a standard data cell in a table.</p>
-                    </div>
-                </div>
-            </div>
+            </section>
 
-            <!-- Sample Code Tab -->
-            <div id="code" class="tab-content hidden">
-                <p class="text-center mb-6 text-slate-400">A side-by-side view of an advanced CV page using semantic HTML and modern CSS.</p>
-                <div class="grid lg:grid-cols-2 gap-6">
-                    <!-- HTML Code Column -->
-                    <div class="bg-black/50 rounded-xl shadow-lg overflow-hidden border border-slate-700">
-                        <div class="p-4 text-sm text-white font-semibold border-b border-slate-700">CV Structure (index.html)</div>
-                        <pre class="p-6 text-sm language-html overflow-x-auto"><code><span class="token-tag">&lt;!DOCTYPE html&gt;</span>
-<span class="token-tag">&lt;html lang="en"&gt;</span>
-<span class="token-tag">&lt;head&gt;</span>
-  <span class="token-tag">&lt;title&gt;</span>CV - Alex Doe<span class="token-tag">&lt;/title&gt;</span>
-  <span class="token-tag">&lt;link <span class="token-attr-name">rel</span>=<span class="token-attr-value">"stylesheet"</span> <span class="token-attr-name">href</span>=<span class="token-attr-value">"style.css"</span>&gt;</span>
-<span class="token-tag">&lt;/head&gt;</span>
-<span class="token-tag">&lt;body&gt;</span>
-  <span class="token-tag">&lt;div <span class="token-attr-name">class</span>=<span class="token-attr-value">"cv-container"</span>&gt;</span>
-    <span class="token-tag">&lt;header <span class="token-attr-name">class</span>=<span class="token-attr-value">"cv-header"</span>&gt;</span>
-      <span class="token-tag">&lt;img src="https://placehold.co/100x100/334155/94a3b8?text=AD" alt="Alex Doe" class="avatar"&gt;</span>
-      <span class="token-tag">&lt;h1&gt;</span>Alex Doe<span class="token-tag">&lt;/h1&gt;</span>
-      <span class="token-tag">&lt;p&gt;</span>Frontend Developer<span class="token-tag">&lt;/p&gt;</span>
-    <span class="token-tag">&lt;/header&gt;</span>
-    <span class="token-tag">&lt;main <span class="token-attr-name">class</span>=<span class="token-attr-value">"cv-main"</span>&gt;</span>
-      <span class="token-tag">&lt;section&gt;</span>
-        <span class="token-tag">&lt;h2&gt;</span>Skills<span class="token-tag">&lt;/h2&gt;</span>
-        <span class="token-tag">&lt;table&gt;</span>
-          <span class="token-tag">&lt;thead&gt;</span>
-            <span class="token-tag">&lt;tr&gt;&lt;th&gt;</span>Category<span class="token-tag">&lt;/th&gt;&lt;th&gt;</span>Skills<span class="token-tag">&lt;/th&gt;&lt;/tr&gt;</span>
-          <span class="token-tag">&lt;/thead&gt;</span>
-          <span class="token-tag">&lt;tbody&gt;</span>
-            <span class="token-tag">&lt;tr&gt;&lt;td&gt;</span>Languages<span class="token-tag">&lt;/td&gt;&lt;td&gt;</span>HTML, CSS, JS<span class="token-tag">&lt;/td&gt;&lt;/tr&gt;</span>
-            <span class="token-tag">&lt;tr&gt;&lt;td&gt;</span>Frameworks<span class="token-tag">&lt;/td&gt;&lt;td&gt;</span>React, Vue<span class="token-tag">&lt;/td&gt;&lt;/tr&gt;</span>
-          <span class="token-tag">&lt;/tbody&gt;</span>
-        <span class="token-tag">&lt;/table&gt;</span>
-      <span class="token-tag">&lt;/section&gt;</span>
-      <span class="token-tag">&lt;section&gt;</span>
-        <span class="token-tag">&lt;h2&gt;</span>Projects<span class="token-tag">&lt;/h2&gt;</span>
-        <span class="token-tag">&lt;ul&gt;</span>
-          <span class="token-tag">&lt;li&gt;&lt;a href="#"&gt;</span>Project One<span class="token-tag">&lt;/a&gt;</span> - A brief description.<span class="token-tag">&lt;/li&gt;</span>
-          <span class="token-tag">&lt;li&gt;&lt;a href="#"&gt;</span>Project Two<span class="token-tag">&lt;/a&gt;</span> - Another description.<span class="token-tag">&lt;/li&gt;</span>
-        <span class="token-tag">&lt;/ul&gt;</span>
-      <span class="token-tag">&lt;/section&gt;</span>
-    <span class="token-tag">&lt;/main&gt;</span>
-  <span class="token-tag">&lt;/div&gt;</span>
-<span class="token-tag">&lt;/body&gt;</span>
-<span class="token-tag">&lt;/html&gt;</span></code></pre>
-                    </div>
-                    <!-- CSS Code Column -->
-                    <div class="bg-black/50 rounded-xl shadow-lg overflow-hidden border border-slate-700">
-                        <div class="p-4 text-sm text-white font-semibold border-b border-slate-700">CV Styling (style.css)</div>
-                        <pre class="p-6 text-sm language-css overflow-x-auto"><code><span class="token-selector">body</span> <span class="token-punctuation">{</span>
-  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-value">#1e293b</span><span class="token-punctuation">;</span>
-  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-value">#e2e8f0</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">.cv-container</span> <span class="token-punctuation">{</span>
-  <span class="token-property">max-width</span><span class="token-punctuation">:</span> <span class="token-value">800px</span><span class="token-punctuation">;</span>
-  <span class="token-property">margin</span><span class="token-punctuation">:</span> <span class="token-value">2rem auto</span><span class="token-punctuation">;</span>
-  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-value">#0f172a</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">.cv-header</span> <span class="token-punctuation">{</span>
-  <span class="token-property">text-align</span><span class="token-punctuation">:</span> <span class="token-value">center</span><span class="token-punctuation">;</span>
-  <span class="token-property">padding</span><span class="token-punctuation">:</span> <span class="token-value">2rem</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">.avatar</span> <span class="token-punctuation">{</span>
-  <span class="token-property">border-radius</span><span class="token-punctuation">:</span> <span class="token-value">50%</span><span class="token-punctuation">;</span>
-  <span class="token-property">margin-bottom</span><span class="token-punctuation">:</span> <span class="token-value">1rem</span><span class="token-punctuation">;</span>
-  <span class="token-property">border</span><span class="token-punctuation">:</span> <span class="token-value">3px solid #334155</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">.cv-main</span> <span class="token-punctuation">{</span>
-  <span class="token-property">padding</span><span class="token-punctuation">:</span> <span class="token-value">0 2rem 2rem</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">h2</span> <span class="token-punctuation">{</span>
-  <span class="token-property">border-bottom</span><span class="token-punctuation">:</span> <span class="token-value">2px solid #334155</span><span class="token-punctuation">;</span>
-  <span class="token-property">padding-bottom</span><span class="token-punctuation">:</span> <span class="token-value">0.5rem</span><span class="token-punctuation">;</span>
-  <span class="token-property">margin-bottom</span><span class="token-punctuation">:</span> <span class="token-value">1rem</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">table</span> <span class="token-punctuation">{</span>
-  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-value">100%</span><span class="token-punctuation">;</span>
-  <span class="token-property">border-collapse</span><span class="token-punctuation">:</span> <span class="token-value">collapse</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">th, td</span> <span class="token-punctuation">{</span>
-  <span class="token-property">padding</span><span class="token-punctuation">:</span> <span class="token-value">0.75rem</span><span class="token-punctuation">;</span>
-  <span class="token-property">border</span><span class="token-punctuation">:</span> <span class="token-value">1px solid #334155</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">thead</span> <span class="token-punctuation">{</span>
-  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-value">#1e293b</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">ul</span> <span class="token-punctuation">{</span>
-  <span class="token-property">list-style-position</span><span class="token-punctuation">:</span> <span class="token-value">inside</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-<span class="token-selector">a</span> <span class="token-punctuation">{</span>
-  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-value">#a5b4fc</span><span class="token-punctuation">;</span>
-<span class="token-punctuation">}</span>
-</code></pre>
-                    </div>
-                </div>
-            </div>
+             <!-- Section: Embedded Media -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-4">Embedded Media (Video & iFrame)</h2>
+                <div class="grid lg:grid-cols-2 gap-4">
+                    <!-- HTML Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">HTML</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>&lt;!-- Video Player --&gt;
+&lt;video class="styled-video" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
 
-            <!-- Q&A Tab -->
-            <div id="qa" class="tab-content hidden space-y-6">
-                <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-slate-100">Why use semantic tags like `<nav>` instead of a `<div>`?</h3>
-                    <p class="mt-2 text-sm text-slate-400">They provide meaning to the content, which helps search engines (SEO) and screen readers (accessibility) understand your page structure.</p>
+&lt;!-- iFrame --&gt;
+&lt;iframe 
+  class="styled-iframe"
+  src="https://www.openstreetmap.org/export/embed.html"&gt;
+&lt;/iframe&gt;</code></pre>
+                    </div>
+                    <!-- CSS Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">CSS</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>.styled-video, .styled-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}</code></pre>
+                    </div>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-slate-100">What is the difference between a Web Server and a Web Service?</h3>
-                    <p class="mt-2 text-sm text-slate-400">A **Web Server** is software that serves website files to a browser (e.g., Apache). A **Web Service** is a function that a website can call over the internet to get data or perform an action (e.g., a weather API).</p>
+                <!-- Live Preview -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-semibold mb-2 text-slate-400">Live Preview</h3>
+                    <div class="preview-box">
+                        <p class="text-xs mb-2 text-slate-500">(Note: Local video files won't play here, but this shows the player controls)</p>
+                        <video class="w-full aspect-video border border-slate-300 rounded-lg mb-4" controls></video>
+                        <iframe class="w-full aspect-video border border-slate-300 rounded-lg" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.12,51.5,0.12,51.51"></iframe>
+                    </div>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-slate-100">What is the purpose of `<thead>` and `<tbody>` in a table?</h3>
-                    <p class="mt-2 text-sm text-slate-400">They group the header and body content of a table, providing structure for styling and accessibility. They also allow browsers to scroll the table body independently of the header.</p>
+            </section>
+
+            <!-- Section: Forms -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-4">Complex Forms</h2>
+                <div class="grid lg:grid-cols-2 gap-4">
+                    <!-- HTML Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">HTML</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>&lt;form class="styled-form"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email"&gt;
+  
+  &lt;label for="msg"&gt;Message&lt;/label&gt;
+  &lt;textarea id="msg" rows="3"&gt;&lt;/textarea&gt;
+  
+  &lt;p&gt;Options:&lt;/p&gt;
+  &lt;div class="radio-group"&gt;
+    &lt;input type="radio" id="opt1" name="option"&gt;
+    &lt;label for="opt1"&gt;Option 1&lt;/label&gt;
+  &lt;/div&gt;
+
+  &lt;button type="submit"&gt;Subscribe&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                    <!-- CSS Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">CSS</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>.styled-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  margin-top: 0.75rem;
+}
+.styled-form input,
+.styled-form textarea,
+.styled-form button {
+  width: 100%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.radio-group input {
+  width: auto; /* Override full width */
+}
+.styled-form button {
+  margin-top: 1rem;
+  background: #4f46e5;
+  color: white;
+}</code></pre>
+                    </div>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-slate-100">What is the difference between `em` and `rem` units?</h3>
-                    <p class="mt-2 text-sm text-slate-400"><code>em</code> is relative to the font-size of its direct parent element. <code>rem</code> (root em) is relative to the font-size of the root `<html>` element. Using `rem` for font sizes is often preferred for more predictable scaling.</p>
+                <!-- Live Preview -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-semibold mb-2 text-slate-400">Live Preview</h3>
+                    <div class="preview-box">
+                        <form>
+                            <label for="email-preview" class="block mb-1 mt-0">Email</label>
+                            <input type="email" id="email-preview">
+                            <label for="msg-preview" class="block mb-1 mt-4">Message</label>
+                            <textarea id="msg-preview" rows="3"></textarea>
+                            <p class="mt-4 mb-2">Options:</p>
+                            <div class="radio-group"><input type="radio" id="opt1-prev" name="option-prev"><label for="opt1-prev">Option 1</label></div>
+                            <button type="submit" class="mt-4 px-4">Subscribe</button>
+                        </form>
+                    </div>
                 </div>
-                 <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-slate-100">What is CSS Specificity?</h3>
-                    <p class="mt-2 text-sm text-slate-400">Specificity is the algorithm browsers use to determine which CSS rule is applied if multiple rules target the same element. Rules with more specific selectors (like an ID <code>#my-id</code>) will override rules with less specific selectors (like a class <code>.my-class</code>).</p>
+            </section>
+
+            <!-- Section: Flexbox & Cursors -->
+            <section>
+                <h2 class="text-2xl font-bold text-white mb-4">Flexbox Layout & Cursors</h2>
+                <div class="grid lg:grid-cols-2 gap-4">
+                    <!-- HTML Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">HTML</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>&lt;div class="flex-container"&gt;
+  &lt;div class="flex-item pointer"&gt;Pointer&lt;/div&gt;
+  &lt;div class="flex-item help"&gt;Help&lt;/div&gt;
+  &lt;div class="flex-item wait"&gt;Wait&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <!-- CSS Snippet -->
+                    <div class="bg-black/50 rounded-lg border border-slate-700 overflow-hidden">
+                        <h3 class="p-3 text-sm font-semibold bg-slate-800 border-b border-slate-700">CSS</h3>
+                        <pre class="p-4 text-xs overflow-x-auto"><code>.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.flex-item {
+  background-color: #4f46e5;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.pointer { cursor: pointer; }
+.help { cursor: help; }
+.wait { cursor: wait; }</code></pre>
+                    </div>
                 </div>
-                 <div class="bg-slate-800/50 p-6 rounded-xl shadow-sm border border-slate-700">
-                    <h3 class="font-semibold text-slate-100">How do you center a `<div>`?</h3>
-                    <p class="mt-2 text-sm text-slate-400">For a block-level element, set a <code>width</code> and then set <code>margin: auto;</code>. For centering content inside the div, use Flexbox: <code>display: flex; justify-content: center; align-items: center;</code>.</p>
+                <!-- Live Preview -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-semibold mb-2 text-slate-400">Live Preview (Hover to see cursors)</h3>
+                    <div class="preview-box">
+                        <div class="flex-container">
+                            <div class="flex-item pointer">Pointer</div>
+                            <div class="flex-item help">Help</div>
+                            <div class="flex-item wait">Wait</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </section>
+
+        </div>
     </div>
 
     <!-- Scroll to Top Button -->
@@ -303,37 +375,6 @@
     <!-- JavaScript for interactivity -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            // Set initial state on page load
-            const initialActiveTab = document.querySelector('.tab-btn.tab-active');
-            if (initialActiveTab) {
-                const initialContentId = initialActiveTab.dataset.tabTarget;
-                const initialContent = document.getElementById(initialContentId);
-                tabContents.forEach(content => content.classList.add('hidden'));
-                if (initialContent) {
-                    initialContent.classList.remove('hidden');
-                }
-            }
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.dataset.tabTarget;
-                    const targetContent = document.getElementById(targetId);
-
-                    // Deactivate all buttons and hide all content
-                    tabButtons.forEach(btn => btn.classList.remove('tab-active'));
-                    tabContents.forEach(content => content.classList.add('hidden'));
-
-                    // Activate the clicked button and show its content
-                    button.classList.add('tab-active');
-                    if (targetContent) {
-                        targetContent.classList.remove('hidden');
-                    }
-                });
-            });
-
             // Scroll to Top Logic
             const scrollTopBtn = document.getElementById('scroll-top-btn');
             window.addEventListener('scroll', () => {
@@ -351,5 +392,4 @@
     </script>
 </body>
 </html>
-
 
